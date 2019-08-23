@@ -1,0 +1,33 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @using FirstCoreApp.Models;
+    
+    <h2 style="font-family:Verdana;">HtmlView</h2>
+    <div style="font-family:Verdana; font-size:13px; border:dashed 1px black; width:350px;">
+        <table>
+            <tr>
+                <td style="font-family:Verdana; font-size:14px; font-weight:bold;">Name</td>
+                <td style="font-family:Verdana; font-size:14px; font-weight:bold;">Email</td>
+            </tr>
+            @{
+                if (ViewData["AllEmployee"] != null)
+                {
+                    if (ViewData.Values != null && ViewData.Values.Count() > 0)
+                    {
+                        foreach (var item in ViewData["AllEmployee"] as List<Employee>)
+                        {
+                            <tr>
+                                <td style="font-family:Verdana; font-size:12px;">@item.Name</td>
+                                <td style="font-family:Verdana; font-size:12px;">@item.Email</td>
+                            </tr>
+                        }
+                    }
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>
