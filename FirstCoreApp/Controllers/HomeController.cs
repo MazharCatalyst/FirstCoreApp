@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FirstCoreApp.Models;
+using FirstCoreApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstCoreApp.Controllers
@@ -26,12 +27,41 @@ namespace FirstCoreApp.Controllers
         //    return Json(models);
         //}
 
+        // ViewData Example
         public ViewResult Details()
         {
             Employee models = _employeeRepository.GetEmployee(1);
             ViewData["PageTitle"] = "Employee Detail";
             ViewData["Employee"] = models;
             return View();
+        }
+
+        //ViewBag Example
+        public ViewResult DetailsViewBag()
+        {
+            Employee models = _employeeRepository.GetEmployee(1);
+            ViewBag.Employee = models;
+            ViewBag.Title = "EmployeeDetail";
+            return View();
+        }
+
+        //Strongly Typed View Example
+        public ViewResult DetailsStrolyTyped() {
+            Employee model = _employeeRepository.GetEmployee(1);
+            ViewBag.PageTitle = "Employee Detail";
+            return View(model);
+        }
+
+        //ViewModel Example
+        public ViewResult DetailsViewModel()
+        {
+            HomeDetailsViewModel homeDetailsViewModel = new HomeDetailsViewModel()
+            {
+                Employee = _employeeRepository.GetEmployee(1),
+                PageTitle = "Employee Detail"
+            };
+
+            return View(homeDetailsViewModel);
         }
 
         // For View
