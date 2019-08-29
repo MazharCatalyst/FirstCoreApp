@@ -64,6 +64,17 @@ namespace FirstCoreApp.Controllers
             return View(homeDetailsViewModel);
         }
 
+        //All Employee using ViewModel
+        public ViewResult AllEmployeeViewModal()
+        {
+            HomeAllEmployeeViewModel homeAllEmployeeViewModel = new HomeAllEmployeeViewModel()
+            {
+                AllEmployee = _employeeRepository.GetAllEmployee(),
+                PageTitle = "Employee Detail ViewModal"
+            };
+           
+            return View(homeAllEmployeeViewModel);
+        }
         // For View
         public ViewResult AllEmployee()
         {

@@ -1,0 +1,31 @@
+﻿
+@model FirstCoreApp.ViewModels.HomeAllEmployeeViewModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h2 style="font-family:Verdana;">@Model.PageTitle</h2>
+    <div style="font-family:Verdana; font-size:13px; border:dashed 1px black; width:350px;">
+        <table>
+            <tr>
+                <td style="font-family:Verdana; font-size:14px; font-weight:bold;">Name</td>
+                <td style="font-family:Verdana; font-size:14px; font-weight:bold;">Email</td>
+            </tr>
+            @{
+                if (Model.AllEmployee != null)
+                {
+                        foreach (var item in Model.AllEmployee)
+                        {
+                            <tr>
+                                <td style="font-family:Verdana; font-size:12px;">@item.Name</td>
+                                <td style="font-family:Verdana; font-size:12px;">@item.Email</td>
+                            </tr>
+                        }
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>
