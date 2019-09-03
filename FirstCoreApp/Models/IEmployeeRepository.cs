@@ -10,5 +10,6 @@ namespace FirstCoreApp.Models
         Employee GetEmployee(int Id);
 
         List<Employee> GetAllEmployee();
+
     }
 }

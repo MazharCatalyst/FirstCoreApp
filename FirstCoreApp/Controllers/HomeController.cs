@@ -17,6 +17,14 @@ namespace FirstCoreApp.Controllers
             _employeeRepository = employeeRepository;
         }
 
+        [HttpGet]
+        [Produces("application/xml")]
+        public List<Employee> Get()
+        {
+            return new List<Employee> { new Employee { Id = 1, Name = "Omar", Email = "Maher" },
+                                new Employee { Id = 2, Name = "Ahmed", Email = "Ali" }};
+        }
+
         public String Index() {
             return _employeeRepository.GetEmployee(2).Name;
         }
@@ -91,6 +99,8 @@ namespace FirstCoreApp.Controllers
         }
 
         // For XML/Object Result
+        [HttpGet]
+        [Produces("application/xml")]
         public ObjectResult AllEmployeeXML()
         {
             Employee models = _employeeRepository.GetEmployee(1);
